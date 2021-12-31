@@ -73,4 +73,21 @@ class Database{
             die('ERROR: '.$e->getMessage()); //Not to be used in production
         }
     }
+
+    /**
+     * Responsible for inserting the objects in the dtabase
+     * @param string $query
+     * @param array $values
+     * @return PDOStatement
+     */
+    public function execute($query, $values = []){
+        try {
+            $statement = $this->connection->prepare($query);
+            $statement->execute($values);
+            return $statement;
+        }
+        catch (PDOException $e){
+            die('ERROR: '.$e->getMessage()); //Not to be used in production
+        }
+    }
 }
