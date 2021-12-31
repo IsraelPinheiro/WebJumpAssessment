@@ -90,4 +90,23 @@ class Database{
             die('ERROR: '.$e->getMessage()); //Not to be used in production
         }
     }
+
+    /**
+     * Responsible for getting data from the database
+     * @param string $where
+     * @param string $order
+     * @param string $limit
+     * @param string $fields
+     * @return PDOStatement
+     */
+    public function select($where=null, $order=null, $limit=null, $fields="*"){
+        //Query Data
+        $where = !empty($where) ? "WHERE {$where}" : "";
+        $order = !empty($order) ? "ORDER BY {$order}" : "";
+        $limit = !empty($limit) ? "LIMIT {$limit}" : "";
+        //Query Building
+        $query = "SELECT {$fields} FROM {$this->table} {$where} {$order} {$limit}";
+        //Execute Query
+        return $this->execute($query);
+    }
 }
