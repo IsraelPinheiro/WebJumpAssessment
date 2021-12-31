@@ -1,44 +1,46 @@
 <?php
 namespace App\Database;
+
 use PDO;
 use PDOException;
+use App\DotEnvParser;
 
 class Database{
     /**
      * Database connection driver to be used
      * @var string
      */
-    const DRIVER = "mysql";
+    var $driver;
 
     /**
      * Database Host
      * @var string
      */
-    const HOST = "localhost";
+    var $host;
 
     /**
      * Database name
      * @var string
      */
-    const DATABASE = "Webjump";
+    var $dbname;
 
     /**
      * Host's port to be used during the connection
      * @var string
      */
-    const PORT = "3306";
+    var $port;
 
     /**
      * Database User name
      * @var string
      */
-    const USER = "root";
+    var $user;
 
     /**
      * Database password
      * @var string
      */
-    const PASSWORD = "secret";
+    var $password;
 
     /**
      * Name of the table to be used
@@ -57,6 +59,13 @@ class Database{
      * @param string $table
      */
     public function __construct($table=null){
+        (new DotEnvParser(__DIR__ . '/.env'))->load();
+        $this->driver = getenv('DATABASE_DRIVER');
+        $this->host = getenv('DATABASE_HOST');
+        $this->dbname = getenv('DATABASE_NAME');
+        $this->port = getenv('DATABASE_PORT');
+        $this->user = getenv('DATABASE_USER');
+        $this->password = getenv('DATABASE_PASSWORD');
         $this->table = $table;
         $this->setConnection();
     }
@@ -66,7 +75,7 @@ class Database{
      */
     private function setConnection(){
         try {
-            $this->connection = new PDO(self::DRIVER.":host=".self::HOST.", dbname=".self::DATABASE.", port=".self::PORT."", self::USER, self::PASSWORD);
+            $this->connection = new PDO("{$this->driver}:host={$this->host}, dbname={$this->dbname}, port={$this->port}", $this->user, $this->password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Throws an exception if anything goes wrong
         }
         catch (PDOException $e) {
