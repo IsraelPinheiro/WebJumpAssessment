@@ -78,8 +78,14 @@ class Database{
             $this->connection = new PDO("{$this->driver}:host={$this->host}, dbname={$this->dbname}, port={$this->port}", $this->user, $this->password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Throws an exception if anything goes wrong
         }
-        catch (PDOException $e) {
-            die('ERROR: '.$e->getMessage()); //Not to be used in production
+        catch (PDOException $e){
+            if(getenv("APP_ENV ")=="dev"){
+                error_log('ERROR: '.$e->getMessage());
+                die('ERROR: '.$e->getMessage());
+            }
+            else{
+                error_log('ERROR: '.$e->getMessage());
+            }
         }
     }
 
@@ -96,7 +102,13 @@ class Database{
             return $statement;
         }
         catch (PDOException $e){
-            die('ERROR: '.$e->getMessage()); //Not to be used in production
+            if(getenv("APP_ENV ")=="dev"){
+                error_log('ERROR: '.$e->getMessage());
+                die('ERROR: '.$e->getMessage());
+            }
+            else{
+                error_log('ERROR: '.$e->getMessage());
+            }
         }
     }
 
