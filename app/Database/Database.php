@@ -142,4 +142,14 @@ class Database{
         $query = "UPDATE {$this->table} SET {$fields} WHERE $where";
         return $this->execute($query, $values);
     }
+
+    /**
+     * Responsible fordeleting the objects from the database
+     * @param int $id
+     * @return boolean
+     */
+    public function delete($id){
+        $query = "DELETE FROM {$this->table} WHERE id=?";
+        return $this->execute($query,[$id]);
+    }
 }
