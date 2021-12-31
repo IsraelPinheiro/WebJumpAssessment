@@ -127,4 +127,19 @@ class Database{
         //Return the id of the inserted object
         return $this->connection->lastInsertId();
     }
+
+    /**
+     * Responsible for updating the object in the database
+     * @param string $where
+     * @param array $data [field=>value]
+     * @return integer id
+     */
+    public function update($where,$data){
+        //Query Data
+        $fields =  implode(',=?',array_keys($data))."=?";
+        $values = array_values($data);
+        //Query Build
+        $query = "UPDATE {$this->table} SET {$fields} WHERE $where";
+        return $this->execute($query, $values);
+    }
 }
