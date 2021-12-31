@@ -109,4 +109,22 @@ class Database{
         //Execute Query
         return $this->execute($query);
     }
+
+    /**
+     * Responsible for inserting the object in the database
+     * @param array $data [field=>value]
+     * @return integer id
+     */
+    public function insert($data){
+        //Query data
+        $fields =  implode(',',array_keys($data));
+        $values = array_values($data);
+        $binds = implode(',',array_pad([],count($data), "?"));
+        //Query Building
+        $query = "INSERT INTO {$this->table} ({$fields}) VALUES({$binds})";
+        //Execute the query
+        $this->execute($query, $values);
+        //Return the id of the inserted object
+        return $this->connection->lastInsertId();
+    }
 }
