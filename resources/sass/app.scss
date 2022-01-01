@@ -1,12 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// SB Admin 2
+@import './sb-admin-2/sb-admin-2';
+
 //Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-
-//Custom Style
-@import './custom'
+//Custom CSS
+@import './custom';
