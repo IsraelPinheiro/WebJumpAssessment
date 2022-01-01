@@ -6,7 +6,7 @@ use App\Database\Database;
 use PDO;
 
 class Product{
-     /**
+    /**
      * The product's table
      * @var integer
      */
@@ -77,6 +77,7 @@ class Product{
             return $this->create($object);
         }
     }
+    
     /**
      * Handles the data creation
      * @return boolean
