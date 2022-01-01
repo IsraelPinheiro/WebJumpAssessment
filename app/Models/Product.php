@@ -3,12 +3,6 @@
 namespace App\Models;
 
 class Product{
-     /**
-     * The product's table
-     * @var integer
-     */
-    const table = "products";
-
     /**
      * The product's identifier
      * @var integer
