@@ -23,6 +23,7 @@
   },
   "homepage": "https://bitbucket.org/israelzero/assessment#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.1",
     "chart.js": "^3.7.0",
     "cross-env": "^7.0.3",
