@@ -8,12 +8,18 @@ use PDO;
 class AccessLog{
     /**
      * The Access Log's table
-     * @var integer
+     * @var string
      */
     const table = "access_logs";
 
     /**
-     * The log's identifier
+     * The log's unique identifier
+     * @var integer
+     */
+    public $id;
+
+    /**
+     * The logged user unique identifier
      * @var integer
      */
     public $user_id;
