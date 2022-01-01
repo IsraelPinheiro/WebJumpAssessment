@@ -1,3 +1,4 @@
+<?php include "./vendor/autoload.php"?>
 <?php include "./resources/includes/head.php"?>
 <body id="page-top">
     <!-- Page Wrapper -->
