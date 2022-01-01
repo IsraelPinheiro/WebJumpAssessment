@@ -19,7 +19,10 @@
   "homepage": "https://bitbucket.org/israelzero/assessment#readme",
   "devDependencies": {
     "bootstrap": "^4.6.1",
+    "chart.js": "^3.7.0",
     "jquery": "^3.6.0",
-    "popper.js": "^1.16.1"
+    "jquery-easing": "^0.0.1",
+    "popper.js": "^1.16.1",
+    "sweetalert": "^2.1.2"
   }
 }
