@@ -2,7 +2,8 @@
     "name": "israe/app",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "App\\Models\\": "app/Models"
         }
     },
     "authors": [
