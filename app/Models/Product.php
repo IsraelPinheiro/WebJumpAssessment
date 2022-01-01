@@ -59,7 +59,7 @@ class Product{
 
     /**
      * Get all objects
-     * @return array[Product]
+     * @return Product[]
      */
     public static function getAll(){
         return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
@@ -77,7 +77,7 @@ class Product{
             return $this->create($object);
         }
     }
-    
+
     /**
      * Handles the data creation
      * @return boolean
