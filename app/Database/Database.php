@@ -59,7 +59,7 @@ class Database{
      * @param string $table
      */
     public function __construct($table=null){
-        (new DotEnvParser(__DIR__ . '/.env'))->load();
+        (new DotEnvParser('./.env'))->load();
         $this->driver = getenv('DATABASE_DRIVER');
         $this->host = getenv('DATABASE_HOST');
         $this->dbname = getenv('DATABASE_NAME');
@@ -75,7 +75,7 @@ class Database{
      */
     private function setConnection(){
         try {
-            $this->connection = new PDO("{$this->driver}:host={$this->host}, dbname={$this->dbname}, port={$this->port}", $this->user, $this->password);
+            $this->connection = new PDO("{$this->driver}:host={$this->host};dbname={$this->dbname};port={$this->port}", $this->user, $this->password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Throws an exception if anything goes wrong
         }
         catch (PDOException $e){
