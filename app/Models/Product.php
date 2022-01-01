@@ -47,4 +47,21 @@ class Product{
      * @var int
      */
     public $quantity;
+
+    /**
+     * Get Object by it's ID
+     * @param integer $id
+     * @return Product
+     */
+    public static function getByID($id){
+        return (new Database(self::table))->select("id={$id}")->fetchObject(self::class);
+    }
+
+    /**
+     * Get all objects
+     * @return array[Product]
+     */
+    public static function getAll(){
+        return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
 }
