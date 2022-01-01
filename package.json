@@ -4,7 +4,12 @@
   "description": "Criamos esse teste para avaliar seus conhecimentos e habilidades como desenvolvedor backend.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,7 @@
   "devDependencies": {
     "bootstrap": "^4.6.1",
     "chart.js": "^3.7.0",
+    "cross-env": "^7.0.3",
     "datatables.net-autofill-bs4": "^2.3.9",
     "datatables.net-bs4": "^1.11.3",
     "datatables.net-buttons-bs4": "^2.1.1",
@@ -38,6 +44,8 @@
     "jquery": "^3.6.0",
     "jquery-easing": "^0.0.1",
     "jszip": "^3.7.1",
+    "laravel-mix": "^6.0.39",
+    "node-sass": "^7.0.1",
     "pdfmake": "^0.2.4",
     "popper.js": "^1.16.1",
     "sweetalert": "^2.1.2"
