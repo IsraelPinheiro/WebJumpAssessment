@@ -7,25 +7,25 @@ use PDO;
 
 class AccessLog{
     /**
-     * The product's table
+     * The Access Log's table
      * @var integer
      */
     const table = "access_logs";
 
     /**
-     * The product's identifier
+     * The log's identifier
      * @var integer
      */
     public $user_id;
 
     /**
-     * The product's name
+     * Public IP of the origin of the access
      * @var string
      */
     public $accessed_from;
 
     /**
-     * Public IP of the origin of the access
+     * When the access occurred
      * @var string
      */
     public $accessed_at;
@@ -40,7 +40,7 @@ class AccessLog{
     }
 
     /**
-     * Responsible for saving the data, be it by creating or updating it
+     * Log the access to the database
      * @return boolean
      */
     public static function log_access(){
