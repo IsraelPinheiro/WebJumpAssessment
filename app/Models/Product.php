@@ -2,7 +2,16 @@
 
 namespace App\Models;
 
+use App\Database\Database;
+use PDO;
+
 class Product{
+     /**
+     * The product's table
+     * @var integer
+     */
+    const table = "products";
+
     /**
      * The product's identifier
      * @var integer
