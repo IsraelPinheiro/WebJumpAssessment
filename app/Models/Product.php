@@ -8,7 +8,7 @@ use PDO;
 class Product{
     /**
      * The product's table
-     * @var integer
+     * @var string
      */
     const table = "products";
 
