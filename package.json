@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://bitbucket.org/israelzero/assessment/issues"
   },
-  "homepage": "https://bitbucket.org/israelzero/assessment#readme"
+  "homepage": "https://bitbucket.org/israelzero/assessment#readme",
+  "devDependencies": {
+    "bootstrap": "^4.6.1",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  }
 }
