@@ -64,4 +64,55 @@ class Product{
     public static function getAll(){
         return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
     }
+
+    /**
+     * Responsible for saving the data, be it by creating or updating it
+     * @return boolean
+     */
+    public function save($object){
+        if(isset($object->id)){
+            return $this->update($object);
+        }
+        else{
+            return $this->create($object);
+        }
+    }
+    /**
+     * Handles the data creation
+     * @return boolean
+     */
+    public function create($object){
+        $db = new Database(self::table);
+        $data = [
+            'name'=>$object->name,
+            'sku'=>$object->sku,
+            'price'=>$object->price,
+            'description'=>$object->description,
+            'quantity'=>$object->quantity
+        ];
+        if ($db->insert($data)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Handles the data updating process
+     * @return boolean
+     */
+    public function update($object){
+        $db = new Database(self::table);
+        $data = [
+            'id'=>$object->id,
+            'name'=>$object->name,
+            'sku'=>$object->sku,
+            'price'=>$object->price,
+            'description'=>$object->description,
+            'quantity'=>$object->quantity
+        ];
+        if ($db->update("id={$object->id}",$data)){
+            return true;
+        }
+        return false;
+    }
 }
