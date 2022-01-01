@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "webjump_accessment",
   "version": "1.0.0",
   "description": "Criamos esse teste para avaliar seus conhecimentos e habilidades como desenvolvedor backend.",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "url": "git+ssh://git@bitbucket.org/israelzero/assessment.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Israel R Pinheiro",
   "license": "ISC",
   "bugs": {
     "url": "https://bitbucket.org/israelzero/assessment/issues"
