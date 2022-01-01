@@ -115,4 +115,13 @@ class Product{
         }
         return false;
     }
+
+    /**
+     * Handles the data deletion process
+     * @return boolean
+     */
+    public function delete($id){
+        (new Database(self::table))->delete($id);
+        return true;
+    }
 }
