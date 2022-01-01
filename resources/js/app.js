@@ -7,3 +7,5 @@ require('jquery-easing')
 require('chart.js')
 //Sweetalert
 import swal from 'sweetalert';
+//Datatables
+require('./datatables')
