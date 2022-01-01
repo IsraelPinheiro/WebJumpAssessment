@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use App\Database\Database;
-use PDO;
-
 class Product{
      /**
      * The product's table
