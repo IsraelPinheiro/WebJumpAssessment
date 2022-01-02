@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Database\Database;
+use App\Controllers\Auth;
 use PDO;
 
 class ChangeLog{
@@ -66,19 +67,16 @@ class ChangeLog{
     }
 
     /**
-     * Responsible for saving the data, be it by creating or updating it
+     * Add a new Change Log
      * @return boolean
      */
-    public static function log_change($object){
+    public static function log_change($target_type, $target_id, $action){
         $data = [
-            'user_id'=>1, //TODO: Get logged user id
-            'target_id'=>$object->target_id,
-            'target_type'=>$object->target_type,
-            'action'=>$object->action
+            'user_id'=>Auth::user()->id,
+            'target_id'=>$target_id,
+            'target_type'=>$target_type,
+            'action'=>$action
         ];
-        if ((new Database(self::table))->insert($data)){
-            return true;
-        }
-        return false;
+        (new Database(self::table))->insert($data);
     }
 }
