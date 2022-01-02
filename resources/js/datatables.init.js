@@ -4,9 +4,7 @@ $(function(){
 		"dom":"<'row'<'col-sm-4'l><'col-sm-4'f><'col-sm-4'B>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         buttons: [
 			'copyHtml5',
-			'excelHtml5',
 			'csvHtml5',
-			'pdfHtml5'
 		],
 		"lengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]],
 		"pageLength": 15,
