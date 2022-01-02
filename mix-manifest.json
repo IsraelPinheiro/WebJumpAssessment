@@ -1,4 +1,6 @@
 {
     "/public/js/app.js": "/public/js/app.js",
-    "/public/css/app.css": "/public/css/app.css"
+    "/public/css/app.css": "/public/css/app.css",
+    "/public/images/favicon.png": "/public/images/favicon.png",
+    "/public/images/favicon.svg": "/public/images/favicon.svg"
 }
