@@ -35,9 +35,9 @@
                     echo '<td class="text-center">'.$product->quantity.'</td>';
                     echo '<td class="text-center">'.count($product->categories()).'</td>';
                     echo '<td class="toolbox text-center">';
-                        echo '<a href="/pages/products/edit?id='.$product->id.'" class="text-decoration-none" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
-                        echo '<a href="/pages/products/view?id='.$product->id.'" class="text-decoration-none" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
-                        echo '<a href="/pages/products/delete?id='.$product->id.'" class="text-decoration-none" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
+                    echo '<a href="/pages/products/edit.php?id='.$product->id.'" class="text-decoration-none" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
+                    echo '<a href="/pages/products/view.php?id='.$product->id.'" class="text-decoration-none" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
+                    echo '<a href="/pages/products/delete.php?id='.$product->id.'" class="text-decoration-none" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
                     echo '</td>';
                 echo '</tr>';
             }
