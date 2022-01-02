@@ -49,11 +49,20 @@ class ChangeLog{
     public $accessed_at;
 
     /**
-     * Get all Access Logs
+     * Get all Change Logs
      * @return array[ChangeLog]
      */
     public static function getAll(){
         return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    /**
+     * Get all Change Logs by a specific user
+     * @param int $id
+     * @return ChangeLog[]
+     */
+    public static function getByUserId($id){
+        return (new Database(self::table))->select("user_id = {$id}")->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
     /**
