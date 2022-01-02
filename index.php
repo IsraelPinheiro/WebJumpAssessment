@@ -1,8 +1,10 @@
 <?php
-    require './vendor/autoload.php';
-    include "./resources/includes/page_top.php"
+    include $_SERVER['DOCUMENT_ROOT']."/resources/includes/page_top.php"
 ?>
 
-<!-- Page Content -->
+<?php 
+    
 
-<?php include "./resources/includes/page_bottom.php"?>
+?>
+
+<?php include $_SERVER['DOCUMENT_ROOT']."/resources/includes/page_bottom.php"?>
