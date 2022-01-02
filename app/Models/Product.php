@@ -66,6 +66,15 @@ class Product{
     }
 
     /**
+     * Return the product's categories
+     * @return Category[]
+     */
+    public function categories(){
+        $ids = implode(',',(new Database(Category::intermediate_table))->select("product_id = {$this->id}",null, null, "category_id")->fetchAll(PDO::FETCH_COLUMN));
+        return (new Database(Category::table))->select("id in ({$ids})")->fetchAll(PDO::FETCH_CLASS, Category::class);
+    }
+
+    /**
      * Responsible for saving the data, be it by creating or updating it
      * @return boolean
      */
