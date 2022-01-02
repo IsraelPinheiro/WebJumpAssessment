@@ -1,4 +1,7 @@
-<?php include $_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php"?>
+<?php
+    session_start();
+    include $_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php";
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,4 +13,20 @@
     <link rel="alternate icon" href="/public/images/favicon.png">
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="/public/js/app.js"></script>
+    <?php
+        if(isset($_SESSION["Alert"])){
+            echo '<script>
+                    $(function(){
+                        swal({
+                            title: "'.$_SESSION["Alert"]["Title"].'",
+                            text: "'.$_SESSION["Alert"]["Text"].'",
+                            icon: "'.$_SESSION["Alert"]["Icon"].'",
+                        })
+                    })
+                </script>';
+            unset($_SESSION["Alert"]);
+        }
+    ?>
 </head>
