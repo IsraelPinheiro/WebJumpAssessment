@@ -70,8 +70,14 @@ class Product{
      * @return Category[]
      */
     public function categories(){
-        $ids = implode(',',(new Database(Category::intermediate_table))->select("product_id = {$this->id}",null, null, "category_id")->fetchAll(PDO::FETCH_COLUMN));
-        return (new Database(Category::table))->select("id in ({$ids})")->fetchAll(PDO::FETCH_CLASS, Category::class);
+        $rows = (new Database(Category::intermediate_table))->select("product_id = {$this->id}",null, null, "category_id")->fetchAll(PDO::FETCH_COLUMN);
+        if(count($rows)>0){
+            $ids = implode(',',$rows);
+            return (new Database(Category::table))->select("id in ({$ids})")->fetchAll(PDO::FETCH_CLASS, Category::class);
+        }
+        else{
+            return array();
+        }
     }
 
     /**
