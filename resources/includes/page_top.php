@@ -1,4 +1,7 @@
-<?php include $_SERVER['DOCUMENT_ROOT']."/resources/includes/head.php"?>
+<?php 
+    include $_SERVER['DOCUMENT_ROOT']."/resources/includes/init.php";
+    include $_SERVER['DOCUMENT_ROOT']."/resources/includes/head.php";
+?>
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
