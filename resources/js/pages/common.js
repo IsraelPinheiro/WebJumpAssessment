@@ -49,6 +49,7 @@ $(function(){
 		.then((logout) => {
 			if(logout) {
 				$.get("/pages/auth/logout.php");
+				window.location.reload();
 			}
 		});
 	});
