@@ -26,7 +26,6 @@ class CategoryProduct{
      */
     public $product_id;
 
-
     /**
      * Get the categories of a product by it's id
      * @param integer $product_id
@@ -54,6 +53,30 @@ class CategoryProduct{
         }
         else{
             return array();
+        }
+    }
+
+    /**
+     * Set a relationship between a product and a category
+     * @param integer $product_id
+     * @param integer $category_id
+     */
+    public static function setRelation($product_id,$category_id){
+        $data = [
+            'product_id'=>$product_id,
+            'category_id'=>$category_id,
+        ];
+        (new Database())->insert($data);
+    }
+
+    /**
+     * Set a relationship between a product and a group og categories
+     * @param integer $product_id
+     * @param integer[] $category_id
+     */
+    public static function setRelationBulk($product_id,$category_ids){
+        foreach ($category_ids as $category_id) {
+            self::setRelation($product_id,$category_id);
         }
     }
 
