@@ -7,13 +7,19 @@ $(function(){
 				extend: 'copyHtml5',
 				className: 'fas fa-copy btn-primary',
 				text: '',
-				titleAttr: 'Copy data to clipboard'
+				titleAttr: 'Copy data to clipboard',
+				exportOptions: {
+                    columns: ':visible(:not(.noexport))'
+                }
 			},
 			{
 				extend: 'csvHtml5',
 				className: 'fas fa-file-csv btn-primary',
 				text: '',
         		titleAttr: 'Export to CSV',
+				exportOptions: {
+                    columns: ':visible(:not(.noexport))'
+                }
 			}
 		],
 		"lengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]],
