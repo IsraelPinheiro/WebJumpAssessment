@@ -5,7 +5,7 @@
 ?>
 <!-- Page Heading --> 
 <h1 class="h3 mb-4 text-gray-800">Products</h1>
-<button class="btn btn-primary btn-circle btn-users-add float-right d-inline" title="Novo" type="button">
+<button class="btn btn-primary btn-circle btn-products-add float-right d-inline" title="New" type="button">
     <i class="fas fa-plus"></i>
 </button>
 
@@ -20,7 +20,7 @@
             <th class="text-center">Price</th>
             <th class="text-center">Qty</th>
             <th class="text-center">Categories</th>
-            <th class="noorder"></th>
+            <th class="noorder noexport"></th>
         </tr>
     </thead>
     <tbody>
@@ -39,9 +39,9 @@
                     echo '<td class="text-center">'.$product->quantity.'</td>';
                     echo '<td class="text-center">'.count($product->categories()).'</td>';
                     echo '<td class="toolbox text-center">';
-                    echo '<a href="/pages/products/edit.php?id='.$product->id.'" class="text-decoration-none" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
-                    echo '<a href="/pages/products/view.php?id='.$product->id.'" class="text-decoration-none" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
-                    echo '<a href="/pages/products/delete.php?id='.$product->id.'" class="text-decoration-none" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
+                        echo '<a data-id='.$product->id.' href="#" class="text-decoration-none btn-products-edit" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$product->id.' href="#" class="text-decoration-none btn-products-view" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$product->id.' href="#" class="text-decoration-none btn-products-delete" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
                     echo '</td>';
                 echo '</tr>';
             }

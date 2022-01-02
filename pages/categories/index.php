@@ -5,7 +5,7 @@
 ?>
 <!-- Page Heading --> 
 <h1 class="h3 mb-4 text-gray-800">Categories</h1>
-<button class="btn btn-primary btn-circle btn-users-add float-right d-inline" title="Novo" type="button">
+<button class="btn btn-primary btn-circle btn-categories-add float-right d-inline" title="New" type="button">
     <i class="fas fa-plus"></i>
 </button>
 
@@ -17,7 +17,7 @@
             <th class="text-center">Name</th>
             <th class="text-center">Description</th>
             <th class="text-center">Products</th>
-            <th class="noorder"></th>
+            <th class="noorder noexport"></th>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +29,9 @@
                     echo '<td class="text-center">'.$category->description.'</td>';
                     echo '<td class="text-center">'.count($category->products()).'</td>';
                     echo '<td class="toolbox text-center">';
-                        echo '<a href="/pages/categories/edit?id='.$category->id.'" class="text-decoration-none" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
-                        echo '<a href="/pages/categories/view?id='.$category->id.'" class="text-decoration-none" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
-                        echo '<a href="/pages/categories/delete?id='.$category->id.'" class="text-decoration-none" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
+                        echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-edit" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-view" title="View"><i class="fas fa-eye fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-delete" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
                     echo '</td>';
                 echo '</tr>';
             }
