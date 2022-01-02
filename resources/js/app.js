@@ -1,5 +1,6 @@
 window.Popper = require('popper.js').default;
-window.$ = window.jQuery = require('jquery');
+import jQuery from 'jquery';
+window.$ = window.jQuery = jQuery;
 require('bootstrap');
 //JQuery Easing
 require('jquery-easing')
@@ -9,5 +10,8 @@ require('./sb-admin-2')
 require('chart.js')
 //Sweetalert
 import swal from 'sweetalert';
+window.Swal = swal;
 //Datatables
 require('./datatables')
+//Pages handling
+require('./pages')
