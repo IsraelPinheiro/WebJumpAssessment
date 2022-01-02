@@ -1,9 +1,5 @@
 <?php
-    session_start();
-    include $_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php";
-    use App\DotEnvParser;
     use App\Controllers\Auth;
-    (new DotEnvParser($_SERVER['DOCUMENT_ROOT'].'/.env'))->load();
 
     //Get the current page
     $location = basename($_SERVER['REQUEST_URI']);
