@@ -28,7 +28,15 @@
 					<tbody>
 						<?php
 							foreach($logs as $log){
-								echo '<tr>';
+								if($log->action=="create"){
+									echo '<tr class="table-success">';
+								}else if($log->action=="update"){
+									echo '<tr class="table-warning">';
+								}else if($log->action=="delete"){
+									echo '<tr class="table-danger">';
+								}else{
+									echo '<tr>';
+								}
 									echo '<td class="text-center">'.$log->id.'</td>';
 									echo '<td class="text-center">'.ucfirst($log->action).'</td>';
 									echo '<td class="text-center">'.ucfirst($log->target_type).'</td>';
