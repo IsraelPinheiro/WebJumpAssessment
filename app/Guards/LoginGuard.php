@@ -13,7 +13,7 @@
         }
     } 
     else if($location=="login.php" && Auth::check()){
-    //If currnt localin is the login page and the is a logged in user, redirects to the home page
+    //If current locale is the login page and there is a logged in user, redirects to the home page
         header('Location: /');
         die();
     }
