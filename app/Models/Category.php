@@ -12,7 +12,6 @@ class Category{
      * @var integer
      */
     const table = "categories";
-    const intermediate_table = "categories_products";
 
     /**
      * The product's identifier
@@ -38,7 +37,7 @@ class Category{
      * @return Product[]
      */
     public function products(){
-        $rows = (new Database(self::intermediate_table))->select("category_id = {$this->id}",null, null, "product_id")->fetchAll(PDO::FETCH_COLUMN);
+        $rows = (new Database(CategoryProduct::table))->select("category_id = {$this->id}",null, null, "product_id")->fetchAll(PDO::FETCH_COLUMN);
         if(count($rows)>0){
             $ids = implode(',',$rows);
             return (new Database(Product::table))->select("id in ({$ids})")->fetchAll(PDO::FETCH_CLASS, Product::class);
