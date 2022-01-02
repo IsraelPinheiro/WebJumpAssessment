@@ -111,8 +111,8 @@ class Category{
      * Handles the data deletion process
      * @return boolean
      */
-    public function delete($id){
-        (new Database(self::table))->delete($id);
+    public function delete(){
+        (new Database(self::table))->delete($this->id);
         return true;
     }
 }
