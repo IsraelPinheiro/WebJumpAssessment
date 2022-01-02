@@ -173,4 +173,13 @@ class Database{
         $query = "DELETE FROM {$this->table} WHERE id=?";
         return $this->execute($query,[$id]);
     }
+
+    /**
+     * Executes a raw query
+     * @param int $id
+     * @return boolean
+     */
+    public function execure_raw($query){
+        return $this->execute($query);
+    }
 }
