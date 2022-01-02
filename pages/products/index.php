@@ -26,7 +26,6 @@
     <tbody>
         <?php
             foreach ($products as $product){
-                $product->categories();
                 echo '<tr>';
                     echo '<td class="text-center">'.$product->id.'</td>';
                     echo '<td class="text-center">'.$product->name.'</td>';
