@@ -50,10 +50,18 @@ class Category{
     
     /**
      * Get all objects
-     * @return array[Product]
+     * @return Category[]
      */
     public static function getAll(){
         return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    /**
+     * Get category by Id
+     * @return Category
+     */
+    public static function getById($id){
+        return (new Database(self::table))->select("id={$id}")->fetchObject(self::class);
     }
 
     /**
