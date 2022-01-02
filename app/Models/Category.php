@@ -33,20 +33,15 @@ class Category{
     public $description;
 
     /**
-     * Get Object by it's ID
+     * Get the products with this category
      * @param integer $id
      * @return Product[]
      */
-    public static function getProducts($id){
-        $productIds = (new Database(self::intermediate_table))->select($fields = "id", $where = "category_id={$id}")->fetchAll();
-        if(!empty($productIds)){
-            return (new Database(Product::table))->select("id in {$productIds}")->fetchAll(PDO::FETCH_CLASS, Product::class);
-        }
-        else{
-            return array();
-        }
+    public function products(){
+        $ids = implode(',',(new Database(self::intermediate_table))->select("category_id = {$this->id}",null, null, "product_id")->fetchAll(PDO::FETCH_COLUMN));
+        return (new Database(Product::table))->select("id in ({$ids})")->fetchAll(PDO::FETCH_CLASS, Product::class);
     }
-
+    
     /**
      * Get all objects
      * @return array[Product]
