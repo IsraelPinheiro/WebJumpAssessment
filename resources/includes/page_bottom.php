@@ -1,7 +1,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            <?php include "./resources/includes/footer.php" ?>
+            <?php include $_SERVER['DOCUMENT_ROOT']."/resources/includes/footer.php" ?>
         </div>
     </div>
     <!-- Scroll to Top Button-->
@@ -9,5 +9,5 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Scripts -->
-    <script src="./public/js/app.js" defer></script>
+    <script src="/public/js/app.js" defer></script>
 </body>
