@@ -59,7 +59,7 @@ class Database{
      * @param string $table
      */
     public function __construct($table=null){
-        (new DotEnvParser('./.env'))->load();
+        (new DotEnvParser($_SERVER['DOCUMENT_ROOT'].'/.env'))->load();
         $this->driver = getenv('DATABASE_DRIVER');
         $this->host = getenv('DATABASE_HOST');
         $this->dbname = getenv('DATABASE_NAME');
