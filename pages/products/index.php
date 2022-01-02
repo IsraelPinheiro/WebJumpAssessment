@@ -26,7 +26,11 @@
     <tbody>
         <?php
             foreach ($products as $product){
-                echo '<tr>';
+                if($product->quantity>0){
+                    echo '<tr>';
+                }else{
+                    echo '<tr class="table-danger">';
+                }
                     echo '<td class="text-center">'.$product->id.'</td>';
                     echo '<td class="text-center">'.$product->name.'</td>';
                     echo '<td class="text-center">'.strtoupper($product->sku).'</td>';
