@@ -1,7 +1,113 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/resources/includes/page_top.php";
     use App\Models\Product;
+    use App\Models\ChangeLog;
+    use App\Models\CategoryProduct;
+
     $products = Product::getAll();
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        //Pseudo Method is POST
+        if($_POST["_method"] == "POST"){
+            $data = array();
+            parse_str($_POST["_data"], $data);
+            $data = (object)$data;
+            $product = new Product();
+            $product->name = empty($data->name) ? null:$data->name;
+            $product->sku = empty($data->sku) ? null:$data->sku;
+            $product->price = empty($data->price) ? 0:$data->price;
+            $product->description = empty($data->description) ? null:$data->description;
+            $product->quantity = empty($data->quantity) ? 0:$data->quantity;
+            $product->id = $product->save();
+            if($product->id){
+                if(count(array_values($data->categories_selected))>0){
+                    CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
+                };
+                ChangeLog::log_change("product", $product->id,"create");
+                $_SESSION["Alert"] = array(
+                    "Title" => "Success!",
+                    "Text" => "Product created successfully",
+                    "Icon" => "success"
+                );
+                return http_response_code(200);
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Error!",
+                    "Text" => "Product couldn't be created",
+                    "Icon" => "error"
+                );
+                return http_response_code(406);
+            }
+        }
+        //Pseudo Method is PUT
+        else if($_POST["_method"] == "PUT"){
+            $product = Product::getById($_POST["_id"]);
+            if($product){
+                $data = array();
+                parse_str($_POST["_data"], $data);
+                $data = (object)$data;
+                $product->name = empty($data->name) ? null:$data->name;
+                $product->sku = empty($data->sku) ? null:$data->sku;
+                $product->price = empty($data->price) ? 0:$data->price;
+                $product->description = empty($data->description) ? null:$data->description;
+                $product->quantity = empty($data->quantity) ? 0:$data->quantity;
+                if($product->save()){
+                    CategoryProduct::deleteByProductId($product->id);
+                    if(count(array_values($data->categories_selected))>0){
+                        CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
+                    };
+                    ChangeLog::log_change("product", $product->id,"update");
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Success!",
+                        "Text" => "Product updated successfully",
+                        "Icon" => "success"
+                    );
+                    return http_response_code(200);
+                }
+                else{
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Error!",
+                        "Text" => "Product couldn't be updated",
+                        "Icon" => "error"
+                    );
+                    return http_response_code(406);
+                }
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Error!",
+                    "Text" => "Product could not be found",
+                    "Icon" => "error"
+                );
+                return http_response_code(404);
+            }
+        }
+        //Pseudo Method is DELETE
+        else if($_POST["_method"] == "DELETE"){
+            $product = Product::getById($_POST["_id"]);
+            if($product){
+                ChangeLog::log_change("product", $product->id,"delete");
+                CategoryProduct::deleteByProductId($product->id);
+                $product->delete();
+                $_SESSION["Alert"] = array(
+                    "Title" => "Success!",
+                    "Text" => "Product deleted successfully",
+                    "Icon" => "success"
+                );
+                return http_response_code(200);
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Error!",
+                    "Text" => "Product could not be found",
+                    "Icon" => "Error"
+                );
+                return http_response_code(404);
+            }
+            
+        }
+    }
 ?>
 <!-- Page Heading --> 
 <h1 class="h3 mb-4 text-gray-800">Products</h1>
