@@ -1,5 +1,5 @@
 <h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> 
-<img width="30" height="30"  src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif"/></h1>
+<img width="30px" height="30px" src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif"/></h1>
 
 
 ## And this is my entry for the WebJump Backend Developer Assessment :exclamation:
