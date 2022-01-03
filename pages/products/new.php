@@ -56,7 +56,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
                                 <label for="description">Available Categories</label>
-                                <select size=5 class="custom-select" id="categories_available" name="categories_available">
+                                <select size=5 class="custom-select" id="categories_available" name="categories_available[]">
 									<?php
 										foreach ($categories as $category){
 											echo '<option value="'.$category->id.'">'.$category->name.'</option>';
@@ -69,7 +69,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
                                 <label for="description">Selected Categories</label>
-                                <select size=5 class="custom-select" id="categories_selected" name="categories_selected"></select>
+                                <select size=5 class="custom-select" id="categories_selected" name="categories_selected[]"></select>
 							</div>
 						</div>
 					</div>
