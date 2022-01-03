@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\AccessLog;
 use App\Models\User;
 
 
@@ -35,6 +36,7 @@ class Auth{
         $user = User::authenticate($email, $password);
         if ($user){
             $_SESSION["User"] = serialize($user);
+            AccessLog::log_access();
             return true;
         }
         else{

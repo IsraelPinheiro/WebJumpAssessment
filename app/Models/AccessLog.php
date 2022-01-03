@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Database\Database;
+use App\Controllers\Auth;
 use PDO;
 
 class AccessLog{
@@ -51,7 +52,7 @@ class AccessLog{
      */
     public static function log_access(){
         $data = [
-            'user_id'=>1, //TODO: Get logged user id
+            'user_id'=>Auth::user()->id,
             'accessed_from'=>$_SERVER['REMOTE_ADDR']
         ];
         if ((new Database(self::table))->insert($data)){
