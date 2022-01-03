@@ -59,7 +59,7 @@
     <!-- Nav Item - Users -->
     <li class="nav-item">
         <a class="nav-link pt-0" href="/pages/users/">
-            <i class="fas fa-fw fa-home"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>Users</span>
         </a>
     </li>
