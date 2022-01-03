@@ -78,6 +78,7 @@ You can contact me by the following channels:
 
 <h3 style="text-align:left">Get in touch:</h3>
 
-[![https://www.linkedin.com/in/israelpinheiro](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg)](https://www.linkedin.com/in/israelpinheiro)
-[![https://t.me/israelrpinheiro](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg)](https://t.me/israelrpinheiro)
-[![https://api.whatsapp.com/send?phone=5585991520250](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg)](https://api.whatsapp.com/send?phone=5585991520250)
+* <a href="https://api.whatsapp.com/send?phone=5585991520250">Whatsapp</a>
+* <a href="https://t.me/israelrpinheiro">Telegram</a>
+* <a href="mailto:israel.pinheiro@live.com">Email</a>
+* <a href="https://www.linkedin.com/in/israelpinheiro">Linkedin</a>
