@@ -1,4 +1,5 @@
-<h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30px"</h1>
+<h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> 
+<img width="30" height="30"  src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif"/></h1>
 
 
 ## And this is my entry for the WebJump Backend Developer Assessment :exclamation:
@@ -77,12 +78,12 @@ You can contact me by the following channels:
 
 <h3 style="text-align:left">Get in touch:</h3>
 <a href="https://www.linkedin.com/in/israelpinheiro/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" height="55">
+    <img width="55" height="65" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" height="55">
 </a>
 <a href="https://t.me/israelrpinheiro" target="_blank">
-    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" height="55">
+    <img width="55" height="65" src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" height="55">
 </a>
 <a href="https://api.whatsapp.com/send?phone=5585991520250" target="_blank">
-    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" height="55">
+    <img width="55" height="65" src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" height="55">
 </a>
 
