@@ -24,6 +24,24 @@ $(function(){
 		});
 	});
 
+    //Button Activities
+	$(document).on("click", ".btn-users-activities",function(event){
+        console.log("activities")
+		$.get("/pages/users/activities.php?id="+$(event.target).parent().data("id"), function(data){
+			$("body").append(data);
+            $(".modal").modal("toggle");
+		});
+	});
+
+    //Button Accesses
+	$(document).on("click", ".btn-users-accesses",function(event){
+        console.log("accesses")
+		$.get("/pages/users/accesses.php?id="+$(event.target).parent().data("id"), function(data){
+			$("body").append(data);
+            $(".modal").modal("toggle");
+		});
+	});
+
     //Button Store
 	$(document).on("click", ".btn-users-store",function(){
         $("#FormModal").validate({

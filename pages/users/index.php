@@ -147,6 +147,8 @@
                     echo '<td class="toolbox text-center">';
                         echo '<a data-id='.$user->id.' href="#" class="text-decoration-none btn-users-edit" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
                         echo '<a data-id='.$user->id.' href="#" class="text-decoration-none btn-users-show" title="Show"><i class="fas fa-eye fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$user->id.' href="#" class="text-decoration-none btn-users-activities" title="Activities"><i class="fas fa-tasks fa-lg pr-1"></i></a>';
+                        echo '<a data-id='.$user->id.' href="#" class="text-decoration-none btn-users-accesses" title="Accesses"><i class="fas fa-sign-in-alt fa-lg pr-1"></i></a>';
                         echo '<a data-id='.$user->id.' href="#" class="text-decoration-none btn-users-delete" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
                     echo '</td>';
                 echo '</tr>';
