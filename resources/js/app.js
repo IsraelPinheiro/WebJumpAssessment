@@ -4,6 +4,8 @@ window.$ = window.jQuery = jQuery;
 require('bootstrap');
 //JQuery Easing
 require('jquery-easing')
+//JQuery Validation
+require('jquery-validation')
 //SB Admin 2
 require('./sb-admin-2')
 //Chart.js
