@@ -26,42 +26,46 @@ $(function(){
 
     //Button Store
 	$(document).on("click", ".btn-categories-store",function(){
-		let formData = $("#FormModal").serialize();
-		$.post({
-			url: "/pages/categories/index.php",
-			data:{
-				_data:formData,
-				_method: 'POST'
-			},
-			dataType: 'json'
-		}).done(function(data){
+		if($("#FormModal").valid()){
+			let formData = $("#FormModal").serialize();
+			$.post({
+				url: "/pages/categories/index.php",
+				data:{
+					_data:formData,
+					_method: 'POST'
+				},
+				dataType: 'json'
+			}).done(function(data){
 
-		}).fail(function(data){
-			
-		}).always(function(data){
-			location.reload();
-		})
+			}).fail(function(data){
+				
+			}).always(function(data){
+				location.reload();
+			})
+		}
 	});
 
     //Button Update
 	$(document).on("click", ".btn-categories-update",function(event){
-        let id = $(event.target).data("id")		
-		let formData = $("#FormModal").serialize();
-		$.post({
-			url: "/pages/categories/index.php",
-			data:{
-				_id:id,
-				_data:formData,
-				_method: 'PUT'
-			},
-			dataType: 'json'
-		}).done(function(data){
+		if($("#FormModal").valid()){
+			let id = $(event.target).data("id")		
+			let formData = $("#FormModal").serialize();
+			$.post({
+				url: "/pages/categories/index.php",
+				data:{
+					_id:id,
+					_data:formData,
+					_method: 'PUT'
+				},
+				dataType: 'json'
+			}).done(function(data){
 
-		}).fail(function(data){
-			
-		}).always(function(data){
-			location.reload();
-		})
+			}).fail(function(data){
+				
+			}).always(function(data){
+				location.reload();
+			})
+		}
 	});
 
 	//Button Delete
