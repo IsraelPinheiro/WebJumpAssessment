@@ -18,7 +18,7 @@ $(function(){
 
     //Button Show
 	$(document).on("click", ".btn-categories-show",function(event){
-		$.get("/users/"+$(event.target).parent().data("id"), function(data){
+		$.get("/pages/categories/show.php?id="+$(event.target).parent().data("id"), function(data){
 			$("body").append(data);
             $(".modal").modal("toggle");
 		});
