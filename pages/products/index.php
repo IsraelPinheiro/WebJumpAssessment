@@ -23,7 +23,7 @@
                 if(count(array_values($data->categories_selected))>0){
                     CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
                 };
-                ChangeLog::log_change("product", $product->id,"create");
+                ChangeLog::log_change("products", $product->id,"create");
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
                     "Text" => "Product created successfully",
@@ -57,7 +57,7 @@
                     if(count(array_values($data->categories_selected))>0){
                         CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
                     };
-                    ChangeLog::log_change("product", $product->id,"update");
+                    ChangeLog::log_change("products", $product->id,"update");
                     $_SESSION["Alert"] = array(
                         "Title" => "Success!",
                         "Text" => "Product updated successfully",
@@ -87,7 +87,7 @@
         else if($_POST["_method"] == "DELETE"){
             $product = Product::getById($_POST["_id"]);
             if($product){
-                ChangeLog::log_change("product", $product->id,"delete");
+                ChangeLog::log_change("products", $product->id,"delete");
                 CategoryProduct::deleteByProductId($product->id);
                 $product->delete();
                 $_SESSION["Alert"] = array(

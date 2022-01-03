@@ -14,7 +14,7 @@
             $category->description = empty($data->description) ? null:$data->description;
             $category->id = $category->save();
             if($category->id){
-                ChangeLog::log_change("category", $category->id,"create");
+                ChangeLog::log_change("categories", $category->id,"create");
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
                     "Text" => "Category created successfully",
@@ -41,7 +41,7 @@
                 $category->name = empty($data->name) ? null:$data->name;
                 $category->description = empty($data->description) ? null:$data->description;
                 if($category->save()){
-                    ChangeLog::log_change("category", $category->id,"update");
+                    ChangeLog::log_change("categories", $category->id,"update");
                     $_SESSION["Alert"] = array(
                         "Title" => "Success!",
                         "Text" => "Category updated successfully",
@@ -71,7 +71,7 @@
         else if($_POST["_method"] == "DELETE"){
             $category = Category::getById($_POST["_id"]);
             if($category){
-                ChangeLog::log_change("category", $category->id,"delete");
+                ChangeLog::log_change("categories", $category->id,"delete");
                 $category->delete();
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
