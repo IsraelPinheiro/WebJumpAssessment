@@ -1,7 +1,113 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/resources/includes/page_top.php";
     use App\Models\User;
+    use App\Controllers\Auth;
     use App\Models\ChangeLog;
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        //Pseudo Method is POST
+        if($_POST["_method"] == "POST"){
+            $data = array();
+            parse_str($_POST["_data"], $data);
+            $data = (object)$data;
+            $user = new User();
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->password = sha1($data->password);
+            $user->is_active = 1;
+            $user->description = empty($data->description) ? null:$data->description;
+            $user->id = $user->save();
+            if($user->id){
+                ChangeLog::log_change("users", $user->id,"create");
+                $_SESSION["Alert"] = array(
+                    "Title" => "Success!",
+                    "Text" => "User created successfully",
+                    "Icon" => "success"
+                );
+                return http_response_code(200);
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Error!",
+                    "Text" => "User couldn't be created",
+                    "Icon" => "error"
+                );
+                return http_response_code(406);
+            }
+        }
+        //Pseudo Method is PUT
+        else if($_POST["_method"] == "PUT"){
+            $user = User::getById($_POST["_id"]);
+            if($user){
+                $data = array();
+                parse_str($_POST["_data"], $data);
+                $data = (object)$data;
+                $user->name = $data->name;
+                $user->email = $data->email;
+                if($data->password){
+                    $user->password = sha1($data->password);
+                }
+                $user->is_active = $data->is_active ? intval($data->is_active) : 0;
+                if($user->save()){
+                    ChangeLog::log_change("users", $user->id,"update");
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Success!",
+                        "Text" => "User updated successfully",
+                        "Icon" => "success"
+                    );
+                    return http_response_code(200);
+                }
+                else{
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Error!",
+                        "Text" => "User couldn't be updated",
+                        "Icon" => "error"
+                    );
+                    return http_response_code(406);
+                }
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Error!",
+                    "Text" => "User could not be found",
+                    "Icon" => "error"
+                );
+                return http_response_code(404);
+            }
+        }
+        //Pseudo Method is DELETE
+        else if($_POST["_method"] == "DELETE"){
+            $user = User::getById($_POST["_id"]);
+            if($user->id!=Auth::user()->id){
+                if($user){
+                    ChangeLog::log_change("users", $user->id,"delete");
+                    $user->delete();
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Success!",
+                        "Text" => "User deleted successfully",
+                        "Icon" => "success"
+                    );
+                    return http_response_code(200);
+                }
+                else{
+                    $_SESSION["Alert"] = array(
+                        "Title" => "Error!",
+                        "Text" => "User could not be found",
+                        "Icon" => "error"
+                    );
+                    return http_response_code(404);
+                }
+            }
+            else{
+                $_SESSION["Alert"] = array(
+                    "Title" => "Warning!",
+                    "Text" => "Can't delete the current logged in user",
+                    "Icon" => "warning"
+                );
+                return http_response_code(406);
+            }
+        }
+    }
 
     $users = User::getAll();
 ?>
