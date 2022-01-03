@@ -12,7 +12,8 @@
             $category = new Category();
             $category->name = empty($data->name) ? null:$data->name;
             $category->description = empty($data->description) ? null:$data->description;
-            if($category->save()){
+            $category->id = $category->save();
+            if($category->id){
                 ChangeLog::log_change("category", $category->id,"create");
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
@@ -39,8 +40,7 @@
                 $data = (object)$data;
                 $category->name = empty($data->name) ? null:$data->name;
                 $category->description = empty($data->description) ? null:$data->description;
-                $category->id = $category->save();
-                if($category->id){
+                if($category->save()){
                     ChangeLog::log_change("category", $category->id,"update");
                     $_SESSION["Alert"] = array(
                         "Title" => "Success!",
@@ -69,10 +69,10 @@
         }
         //Pseudo Method is DELETE
         else if($_POST["_method"] == "DELETE"){
-            $product = Category::getById($_POST["_id"]);
-            if($product){
-                $product->delete();
+            $category = Category::getById($_POST["_id"]);
+            if($category){
                 ChangeLog::log_change("category", $category->id,"delete");
+                $category->delete();
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
                     "Text" => "Category deleted successfully",
