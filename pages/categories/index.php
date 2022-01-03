@@ -123,6 +123,7 @@
                         echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-edit" title="Edit"><i class="fas fa-edit fa-lg pr-1"></i></a>';
                         echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-show" title="Show"><i class="fas fa-eye fa-lg pr-1"></i></a>';
                         echo '<a data-id='.$category->id.' href="#" class="text-decoration-none btn-categories-delete" title="Delete"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>';
+                    echo '</td>';
                 echo '</tr>';
             }
         ?>
