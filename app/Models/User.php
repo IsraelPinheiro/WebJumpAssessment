@@ -63,7 +63,7 @@ class User{
      * Get User's Access Logs
      * @return AccessLog[]
      */
-    public function access_logs($id){
+    public function access_logs(){
         return (new Database(AccessLog::table))->select("user_id={$this->id}")->fetchAll(PDO::FETCH_CLASS, AccessLog::class);
     }
 
