@@ -26,46 +26,48 @@ $(function(){
 
     //Button Store
 	$(document).on("click", ".btn-products-store",function(){
-		$(document).find('#categories_selected').prop('multiple', true);
-		$(document).find('#categories_selected option').prop('selected', true);
-		let formData = $("#FormModal").serialize();
-		$.post({
-			url: "/pages/products/index.php",
-			data:{
-				_data:formData,
-				_method: 'POST'
-			},
-			dataType: 'json'
-		}).done(function(data){
+		if($("#FormModal").valid()){
+			$(document).find('#categories_selected option').prop('selected', true);
+			let formData = $("#FormModal").serialize();
+			$.post({
+				url: "/pages/products/index.php",
+				data:{
+					_data:formData,
+					_method: 'POST'
+				},
+				dataType: 'json'
+			}).done(function(data){
 
-		}).fail(function(data){
-			
-		}).always(function(data){
-			location.reload();
-		})
+			}).fail(function(data){
+				
+			}).always(function(data){
+				location.reload();
+			})
+		}
 	});
 
     //Button Update
 	$(document).on("click", ".btn-products-update",function(event){
-		$(document).find('#categories_selected').prop('multiple', true);
-		$(document).find('#categories_selected option').prop('selected', true);
-        let id = $(event.target).data("id")		
-		let formData = $("#FormModal").serialize();
-		$.post({
-			url: "/pages/products/index.php",
-			data:{
-				_id:id,
-				_data:formData,
-				_method: 'PUT'
-			},
-			dataType: 'json'
-		}).done(function($data){
+		if($("#FormModal").valid()){
+			$(document).find('#categories_selected option').prop('selected', true);
+			let id = $(event.target).data("id")		
+			let formData = $("#FormModal").serialize();
+			$.post({
+				url: "/pages/products/index.php",
+				data:{
+					_id:id,
+					_data:formData,
+					_method: 'PUT'
+				},
+				dataType: 'json'
+			}).done(function($data){
 
-		}).fail(function($data){
-			
-		}).always(function($data){
-			location.reload();
-		})
+			}).fail(function($data){
+				
+			}).always(function($data){
+				location.reload();
+			})
+		}
 	});
 
 	//Button Delete
