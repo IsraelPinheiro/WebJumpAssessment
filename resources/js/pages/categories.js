@@ -1,6 +1,6 @@
 $(function(){
 	//Buttons
-	//Button New - DONE
+	//Button New
 	$('.btn-categories-add').on("click", function(){
 		$.get("/pages/categories/new.php", function(data){
 			$("body").append(data);
@@ -8,7 +8,7 @@ $(function(){
 		});
 	});
 
-	//Button Edit - DONE
+	//Button Edit
 	$(document).on("click", ".btn-categories-edit",function(event){
 		$.get("/pages/categories/edit.php?id="+$(event.target).parent().data("id"), function(data){
 			$("body").append(data);
@@ -16,7 +16,7 @@ $(function(){
 		});
     });
 
-    //Button Show - DONE
+    //Button Show
 	$(document).on("click", ".btn-categories-show",function(event){
 		$.get("/users/"+$(event.target).parent().data("id"), function(data){
 			$("body").append(data);
@@ -24,7 +24,7 @@ $(function(){
 		});
 	});
 
-    //Button Store - DONE
+    //Button Store
 	$(document).on("click", ".btn-categories-store",function(){
 		let formData = $("#FormModal").serialize();
 		$.post({
@@ -64,7 +64,7 @@ $(function(){
 		})
 	});
 
-	//Button Deletar - DONE
+	//Button Deletar
 	$(document).on("click", ".btn-categories-delete",function(event){
 		swal({
 			title: "Delete",
