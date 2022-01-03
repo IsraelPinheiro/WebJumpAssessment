@@ -41,8 +41,7 @@ $(function(){
 		}).fail(function(data){
 			
 		}).always(function(data){
-			console.log(data.responseText)
-			//location.reload();
+			location.reload();
 		})
 	});
 
