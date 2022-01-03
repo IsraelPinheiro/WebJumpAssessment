@@ -7,7 +7,7 @@
 	if(isset($_GET["id"])){
 		$product = Product::getById($_GET["id"]);
 		if($product){
-			ChangeLog::log_change("product", $product->id,"read");
+			ChangeLog::log_change("products", $product->id,"read");
 		}
 		else{
 			http_response_code(404);
