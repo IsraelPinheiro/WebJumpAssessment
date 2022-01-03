@@ -58,6 +58,22 @@ class ChangeLog{
     }
 
     /**
+     * Get log user
+     * @return User
+     */
+    public function user(){
+        return (new Database(User::table))->select("id={$this->user_id}")->fetchObject(self::class);
+    }
+
+    /**
+     * Get log target
+     * @return any
+     */
+    public function target(){
+        return (new Database($this->target_type))->select("id={$this->target_id}")->fetchObject(self::class);
+    }
+
+    /**
      * Get all Change Logs by a specific user
      * @param int $id
      * @return ChangeLog[]
