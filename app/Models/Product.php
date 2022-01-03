@@ -98,7 +98,6 @@ class Product{
      * @return boolean
      */
     public function create($object){
-        $db = new Database(self::table);
         $data = [
             'name'=>$object->name,
             'sku'=>$object->sku,
@@ -106,8 +105,9 @@ class Product{
             'description'=>$object->description,
             'quantity'=>$object->quantity
         ];
-        if ($db->insert($data)){
-            return true;
+        $id = (new Database(self::table))->insert($data);
+        if($id){
+            return $id;
         }
         return false;
     }

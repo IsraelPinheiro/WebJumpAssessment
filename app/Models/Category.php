@@ -84,8 +84,9 @@ class Category{
             'name'=>$this->name,
             'description'=>$this->description,
         ];
-        if ((new Database(self::table))->insert($data)){
-            return true;
+        $id = (new Database(self::table))->insert($data);
+        if($id){
+            return $id;
         }
         return false;
     }
