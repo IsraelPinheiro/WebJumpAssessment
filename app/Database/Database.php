@@ -157,7 +157,7 @@ class Database{
      */
     public function update($where,$data){
         //Query Data
-        $fields =  implode(',=?',array_keys($data))."=?";
+        $fields =  implode('=?,',array_keys($data))."=?";
         $values = array_values($data);
         //Query Build
         $query = "UPDATE {$this->table} SET {$fields} WHERE $where";
