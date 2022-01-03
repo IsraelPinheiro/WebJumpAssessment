@@ -1,48 +1,88 @@
-# Você quer ser um desenvolvedor Backend na Web Jump?
-Criamos esse teste para avaliar seus conhecimentos e habilidades como desenvolvedor backend.
+<h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="30px"</h1>
 
-# O teste
-O desafio é desenvolver um sistema de gerenciamento de produtos. Esse sistema será composto de um cadastro de produtos e categorias. Os requisitos desse sistema estão listados nos tópicos abaixo.
-Não existe certo ou errado, queremos saber como você se sai em situações reais como esse desafio.
 
-# Instruções
-- O foco principal do nosso teste é o backend. Para facilitar você poderá utilizar os arquivos html  disponíveis no diretório assets
-- Crie essa aplicação como se fosse uma aplicação real, que seria utilizada pelo WebJump
-- Fique à vontade para usar bibliotecas/componentes externos (composer)
-- Não utilize nenhum Framework, tais como Laravel, Lumen ou Symphony
-- Seguir princípios **SOLID** 
-- Utilize boas práticas de programação
-- Utilize boas práticas de git
-- Documentar como rodar o projeto
-- Crie uma documentação simples comentando sobre as tecnologias, versões e soluções adotadas
+## And this is my entry for the WebJump Backend Developer Assessment :exclamation:
 
-# Requisitos
-- O sistema deverá ser desenvolvido utilizando a linguagem PHP (de preferência a versão mais nova) ou outra linguagem se assim foi especificado para sua avaliação por nossa equipe.
-- Você deve criar um CRUD que permita cadastrar as seguintes informações:
-	- **Produto**: Nome, SKU (Código), preço, descrição, quantidade e categoria (cada produto pode conter uma ou mais categorias)
-	- **Categoria**: Código e nome.
-- Salvar as informações necessárias em um banco de dados (relacional ou não), de sua escolha
+## :desktop_computer: Technologies and Dependencies
+### Main external libraries used:
+* Bootstrap 4.6: An open source web framework for developing interface and front-end components for websites and web applications using HTML, CSS and JavaScript, based on design templates for typography, improving the user experience in a user-friendly website and responsive 
+* FontAwesome 5.15: The web's most popular icon set and toolkit.
+* Datatables (Bootstrap 4): A plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.
+* JQuery 3.6: A library of JavaScript functions that interact with HTML, designed to simplify scripts interpreted in the client's browser. Used by around 74.4% of the world's 10,000 most visited websites, jQuery is the most popular of the JavaScript libraries. 
+* SweetAlert: Makes popup messages easy and pretty.
 
-# Opcionais
-- Gerar logs das ações
-- Testes automatizados com informação da cobertura de testes
-- Upload de imagem no cadastro de produtos
+### Main Dev Dependencies:
+* Composer: Application-level package manager for the PHP programming language that provides a standard format for managing PHP software dependencies and required libraries. 
+* NPM: Adapt packages of code for your apps, or incorporate packages as they are
+* Laravel Mix: An elegant wrapper around Webpack for the 80% use case.
 
-# O que será avaliado
-- Estrutura e organização do código e dos arquivos
-- Soluções adotadas
-- Tecnologias utilizadas
-- Qualidade
-- Padrões PSR, Design Patterns
-- Enfim, tudo será observado e levado em conta
+### Main Backend Dependencies:
+* PHP 7.4+ (Built with 8.0)
+* Apache Server 2.4+ (Runs perfectly with PHP's internal web server)
+* MySQL 5.7+
 
-# Como iniciar o desenvolvimento
-- **Fork** esse repositório na sua conta do BitBucket.
-- Crie uma branch com o nome **desafio**
+## :gear: Instalation:
 
-# Como enviar seu teste
-Envie um email para [carreira@webjump.com.br] com o link do seu repositório.
+* Step 1: Preparation
 
-Se o seu repositório for privado, conceda acesso aos emails: eliel.depaula@webjump.com.br, deocleciano.junior@webjump.com.br, gustavo.alves@webjump.com.br.
+Run the provided sql script (/database.sql).
+The script is responsible for the creation of the database structure and tables initial population.
 
-Qualquer dúvida sobre o teste, fique a vontade para entrar em contato conosco.
+* Step 2: Cloning
+```bash
+$git clone git@bitbucket.org:israelzero/assessment.git
+```
+* Step 3: Instalation
+
+Access the folder of the cloned repo and run the following commands
+
+```bash
+$composer install
+$composer post-install
+$npm install
+$npm run production
+```
+
+* Step 4: Environment Variables
+
+If necessary change the Environment Variables present in /.env.
+The provided file (From .env.example) is as following:
+
+```
+APP_ENV = dev
+APP_NAME = Webjump Acessment
+APP_LOCALE = en
+DATABASE_DRIVER = mysql
+DATABASE_HOST = localhost
+DATABASE_NAME = Webjump
+DATABASE_PORT = 3306
+DATABASE_USER = root
+DATABASE_PASSWORD = secret
+```
+
+* Step 5: Run! :runner:
+
+Now, the application should be ready to run.
+Access the root of your web server pointing to the cloned folder, or, use the internal PHP Web Server running the following command in the application folder
+
+```bash
+$php -S localhost::80
+```
+
+
+## :envelope: Contact and Acknowledgments 
+
+Have any question ?
+You can contact me by the following channels:
+
+<h3 style="text-align:left">Get in touch:</h3>
+<a href="https://www.linkedin.com/in/israelpinheiro/" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" height="55">
+</a>
+<a href="https://t.me/israelrpinheiro" target="_blank">
+    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" height="55">
+</a>
+<a href="https://api.whatsapp.com/send?phone=5585991520250" target="_blank">
+    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" height="55">
+</a>
+
