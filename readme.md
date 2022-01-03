@@ -76,18 +76,8 @@ $php -S localhost::80
 Have any question ?
 You can contact me by the following channels:
 
-![https://www.linkedin.com/in/israelpinheiro](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg)(https://www.linkedin.com/in/israelpinheiro){height=55}
-![https://t.me/israelrpinheiro](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg)(https://t.me/israelrpinheiro){height=55}
-![alt text for the image](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg)(https://api.whatsapp.com/send?phone=5585991520250){height=55}
-
 <h3 style="text-align:left">Get in touch:</h3>
-<a href="https://www.linkedin.com/in/israelpinheiro/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" style="width:55px">
-</a>
-<a href="https://t.me/israelrpinheiro" target="_blank">
-    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" style="width:55px">
-</a>
-<a href="https://api.whatsapp.com/send?phone=5585991520250" target="_blank">
-    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" style="width:55px">
-</a>
 
+[![https://www.linkedin.com/in/israelpinheiro](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg)](https://www.linkedin.com/in/israelpinheiro)
+[![https://t.me/israelrpinheiro](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg)](https://t.me/israelrpinheiro)
+[![https://api.whatsapp.com/send?phone=5585991520250](https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg)](https://api.whatsapp.com/send?phone=5585991520250)
