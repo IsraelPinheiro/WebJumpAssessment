@@ -1,10 +1,10 @@
-<h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> 
-<img width="30px" height="30px" src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif"/></h1>
+<h1 align="center">Hi, I'm <a href="https://github.com/IsraelPinheiro">Israel Pinheiro</a> :wave:
+</h1>
 
 
-## And this is my entry for the WebJump Backend Developer Assessment :exclamation:
+## And this is my entry for the WebJump Backend Developer Assessment:exclamation:
 
-## :desktop_computer: Technologies and Dependencies
+## :desktop_computer:Technologies and Dependencies
 ### Main external libraries used:
 * Bootstrap 4.6: An open source web framework for developing interface and front-end components for websites and web applications using HTML, CSS and JavaScript, based on design templates for typography, improving the user experience in a user-friendly website and responsive 
 * FontAwesome 5.15: The web's most popular icon set and toolkit.
@@ -22,7 +22,7 @@
 * Apache Server 2.4+ (Runs perfectly with PHP's internal web server)
 * MySQL 5.7+
 
-## :gear: Instalation:
+## :gear:Instalation:
 
 * Step 1: Preparation
 
@@ -78,12 +78,12 @@ You can contact me by the following channels:
 
 <h3 style="text-align:left">Get in touch:</h3>
 <a href="https://www.linkedin.com/in/israelpinheiro/" target="_blank">
-    <img width="55" height="65" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" height="55">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="https://www.linkedin.com/in/israelpinheiro" style="width:55px">
 </a>
 <a href="https://t.me/israelrpinheiro" target="_blank">
-    <img width="55" height="65" src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" height="55">
+    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons/Telegram.svg" alt="https://t.me/israelrpinheiro" style="width:55px">
 </a>
 <a href="https://api.whatsapp.com/send?phone=5585991520250" target="_blank">
-    <img width="55" height="65" src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" height="55">
+    <img src="https://raw.githubusercontent.com/IsraelPinheiro/IsraelPinheiro/main/icons//Whatsapp.svg" alt="https://api.whatsapp.com/send?phone=5585991520250" style="width:55px">
 </a>
 
