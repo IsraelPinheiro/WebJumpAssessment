@@ -30,12 +30,7 @@ class Category{
      * @var string
      */
     public $description;
-
-    public function __construct($name, $description){
-        $this->name = $name;
-        $this->description = $description;
-    }
-
+    
     /**
      * Get the products with this category
      * @param integer $id
