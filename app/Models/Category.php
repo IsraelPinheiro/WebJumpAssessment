@@ -31,6 +31,11 @@ class Category{
      */
     public $description;
 
+    public function __construct($name, $description){
+        $this->name = $name;
+        $this->description = $description;
+    }
+
     /**
      * Get the products with this category
      * @param integer $id
@@ -67,22 +72,22 @@ class Category{
      * Responsible for saving the data, be it by creating or updating it
      * @return boolean
      */
-    public function save($object){
-        if(isset($object->id)){
-            return $this->update($object);
+    public function save(){
+        if(isset($this->id)){
+            return $this->update();
         }
         else{
-            return $this->create($object);
+            return $this->create();
         }
     }
     /**
      * Handles the data creation
      * @return boolean
      */
-    public function create($object){
+    public function create(){
         $data = [
-            'name'=>$object->name,
-            'description'=>$object->description,
+            'name'=>$this->name,
+            'description'=>$this->description,
         ];
         if ((new Database(self::table))->insert($data)){
             return true;
@@ -94,13 +99,13 @@ class Category{
      * Handles the data updating process
      * @return boolean
      */
-    public function update($object){
+    public function update(){
         $data = [
-            'id'=>$object->id,
-            'name'=>$object->name,
-            'description'=>$object->description
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'description'=>$this->description
         ];
-        if ((new Database(self::table))->update("id={$object->id}",$data)){
+        if ((new Database(self::table))->update("id={$this->id}",$data)){
             return true;
         }
         return false;
