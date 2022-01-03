@@ -46,6 +46,14 @@ class AccessLog{
         return (new Database(self::table))->select()->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
+     /**
+     * Get log user
+     * @return User
+     */
+    public function user(){
+        return (new Database(User::table))->select("id={$this->user_id}")->fetchObject(self::class);
+    }
+
     /**
      * Log the access to the database
      * @return boolean
