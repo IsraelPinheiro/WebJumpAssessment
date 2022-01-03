@@ -6,7 +6,7 @@
 	if(isset($_GET["id"])){
 		$category = Category::getById($_GET["id"]);
 		if($category){
-			ChangeLog::log_change("category", $category->id,"read");
+			ChangeLog::log_change("categories", $category->id,"read");
 		}
 		else{
 			http_response_code(404);

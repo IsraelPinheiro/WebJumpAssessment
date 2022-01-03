@@ -7,7 +7,7 @@
 	if(isset($_GET["id"])){
 		$product = Product::getById($_GET["id"]);
 		if($product){
-			ChangeLog::log_change("product", $product->id,"read");
+			ChangeLog::log_change("products", $product->id,"read");
 			$categories_selected = $product->categories();
 			$categories_notselected = array_udiff(Category::getAll(), $product->categories(), function($obj_a, $obj_b){
 				return $obj_a->id - $obj_b->id;
