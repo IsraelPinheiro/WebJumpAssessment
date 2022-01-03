@@ -64,7 +64,7 @@ $(function(){
 		})
 	});
 
-	//Button Deletar
+	//Button Delete
 	$(document).on("click", ".btn-categories-delete",function(event){
 		swal({
 			title: "Delete",
