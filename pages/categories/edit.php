@@ -54,7 +54,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-				<button type="submit" class="btn btn-primary btn-product-store">Save</button>
+				<button type="submit" class="btn btn-primary btn-categories-update" data-id="<?php echo $category->id ?>">Save</button>
 			</div>
 	  	</div>
 	</div>
