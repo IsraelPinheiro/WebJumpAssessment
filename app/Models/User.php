@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Database\Database;
+use App\Models\ChangeLog;
 use PDO;
-use Serializable;
 
 class User{
     /**
@@ -58,6 +58,23 @@ class User{
     public static function getByID($id):User{
         return (new Database(self::table))->select("id={$id}")->fetchObject(self::class);
     }
+
+    /**
+     * Get User's Access Logs
+     * @return AccessLog[]
+     */
+    public function access_logs($id){
+        return (new Database(AccessLog::table))->select("user_id={$this->id}")->fetchAll(PDO::FETCH_CLASS, AccessLog::class);
+    }
+
+    /**
+     * Get User's Change Logs
+     * @return ChangeLog[]
+     */
+    public function change_logs(){
+        return (new Database(ChangeLog::table))->select("user_id={$this->id}")->fetchAll(PDO::FETCH_CLASS, ChangeLog::class);
+    }
+    
 
     /**
      * Tries to autenticate the user with the givent credentials
