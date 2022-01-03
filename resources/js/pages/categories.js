@@ -34,11 +34,11 @@ $(function(){
 				_method: 'POST'
 			},
 			dataType: 'json'
-		}).done(function($data){
+		}).done(function(data){
 
-		}).fail(function($data){
+		}).fail(function(data){
 			
-		}).always(function($data){
+		}).always(function(data){
 			location.reload();
 		})
 	});
@@ -55,11 +55,11 @@ $(function(){
 				_method: 'PUT'
 			},
 			dataType: 'json'
-		}).done(function($data){
+		}).done(function(data){
 
-		}).fail(function($data){
+		}).fail(function(data){
 			
-		}).always(function($data){
+		}).always(function(data){
 			location.reload();
 		})
 	});
@@ -80,11 +80,11 @@ $(function(){
 						_id:id,
 						_method: 'DELETE'
 					}
-				}).done(function($data){
+				}).done(function(data){
 					
-				}).fail(function($data){
+				}).fail(function(data){
 
-				}).always(function($data){
+				}).always(function(data){
 					location.reload();
 				})
 			}
