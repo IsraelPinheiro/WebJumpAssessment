@@ -1,6 +1,11 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT']."/resources/includes/init.php";
     include $_SERVER['DOCUMENT_ROOT']."/resources/includes/head.php";
+    use App\Controllers\Auth;
+    if(!Auth::check()){
+        header('Location: /');
+        die();
+    }
 ?>
 <body id="page-top">
     <!-- Page Wrapper -->
