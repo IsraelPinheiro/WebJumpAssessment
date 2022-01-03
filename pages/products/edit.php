@@ -88,7 +88,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="description">Selected Categories</label>
-								<select size=5 class="custom-select" id="categories_selected" name="categories_selected[]">
+								<select size=5 class="custom-select" id="categories_selected" name="categories_selected[]" multiple>
 									<?php
 										foreach ($categories_selected as $category){
 											echo '<option value="'.$category->id.'">'.$category->name.'</option>';
