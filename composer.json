@@ -17,6 +17,9 @@
     "scripts": {
         "post-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "run-app":[
+            "@php -S localhost:80"
         ]
     },
     "require": {
