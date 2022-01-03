@@ -66,7 +66,7 @@ class CategoryProduct{
             'product_id'=>$product_id,
             'category_id'=>$category_id,
         ];
-        (new Database())->insert($data);
+        (new Database(self::table))->insert($data);
     }
 
     /**
