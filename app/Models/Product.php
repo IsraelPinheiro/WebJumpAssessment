@@ -84,12 +84,12 @@ class Product{
      * Responsible for saving the data, be it by creating or updating it
      * @return boolean
      */
-    public function save($object){
-        if(isset($object->id)){
-            return $this->update($object);
+    public function save(){
+        if(isset($this->id)){
+            return $this->update();
         }
         else{
-            return $this->create($object);
+            return $this->create();
         }
     }
 
@@ -97,13 +97,13 @@ class Product{
      * Handles the data creation
      * @return boolean
      */
-    public function create($object){
+    public function create(){
         $data = [
-            'name'=>$object->name,
-            'sku'=>$object->sku,
-            'price'=>$object->price,
-            'description'=>$object->description,
-            'quantity'=>$object->quantity
+            'name'=>$this->name,
+            'sku'=>$this->sku,
+            'price'=>$this->price,
+            'description'=>$this->description,
+            'quantity'=>$this->quantity
         ];
         $id = (new Database(self::table))->insert($data);
         if($id){
@@ -116,17 +116,16 @@ class Product{
      * Handles the data updating process
      * @return boolean
      */
-    public function update($object){
-        $db = new Database(self::table);
+    public function update(){
         $data = [
-            'id'=>$object->id,
-            'name'=>$object->name,
-            'sku'=>$object->sku,
-            'price'=>$object->price,
-            'description'=>$object->description,
-            'quantity'=>$object->quantity
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'sku'=>$this->sku,
+            'price'=>$this->price,
+            'description'=>$this->description,
+            'quantity'=>$this->quantity
         ];
-        if ($db->update("id={$object->id}",$data)){
+        if ((new Database(self::table))->update("id={$this->id}",$data)){
             return true;
         }
         return false;
