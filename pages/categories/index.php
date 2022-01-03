@@ -1,6 +1,7 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/resources/includes/page_top.php";
     use App\Models\Category;
+    use App\Models\ChangeLog;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         //Pseudo Method is POST
@@ -12,6 +13,7 @@
             $category->name = empty($data->name) ? null:$data->name;
             $category->description = empty($data->description) ? null:$data->description;
             if($category->save()){
+                ChangeLog::log_change("category", $category->id,"create");
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
                     "Text" => "Category created successfully",
@@ -38,6 +40,7 @@
                 $category->name = empty($data->name) ? null:$data->name;
                 $category->description = empty($data->description) ? null:$data->description;
                 if($category->save()){
+                    ChangeLog::log_change("category", $category->id,"update");
                     $_SESSION["Alert"] = array(
                         "Title" => "Success!",
                         "Text" => "Category updated successfully",
@@ -68,6 +71,7 @@
             $product = Category::getById($_POST["_id"]);
             if($product){
                 $product->delete();
+                ChangeLog::log_change("category", $category->id,"delete");
                 $_SESSION["Alert"] = array(
                     "Title" => "Success!",
                     "Text" => "Category deleted successfully",
