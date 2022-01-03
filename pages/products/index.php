@@ -20,7 +20,7 @@
             $product->quantity = empty($data->quantity) ? 0:$data->quantity;
             $product->id = $product->save();
             if($product->id){
-                if(count(array_values($data->categories_selected))>0){
+                if($data->categories_selected){
                     CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
                 };
                 ChangeLog::log_change("products", $product->id,"create");
@@ -54,7 +54,7 @@
                 $product->quantity = empty($data->quantity) ? 0:$data->quantity;
                 if($product->save()){
                     CategoryProduct::deleteByProductId($product->id);
-                    if(count(array_values($data->categories_selected))>0){
+                    if($data->categories_selected){
                         CategoryProduct::setRelationBulk($product->id,array_values($data->categories_selected));
                     };
                     ChangeLog::log_change("products", $product->id,"update");
