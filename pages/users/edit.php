@@ -67,7 +67,7 @@
                                 <label for="is_active">User Status</label>
                                 <div class="input-group">                                
                                     <label class="switch">
-                                        <input id="is_active" name="is_active" type="checkbox" class="primary" <?php echo $user->is_active ? " checked" : "" ?>>
+                                        <input id="is_active" name="is_active" type="checkbox" class="primary" value="1" <?php echo $user->is_active ? " checked" : "" ?>>
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
