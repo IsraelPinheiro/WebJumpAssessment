@@ -74,18 +74,16 @@ class User{
         }
     }
 
-    
-
     /**
      * Responsible for saving the data, be it by creating or updating it
      * @return boolean
      */
-    public function save($object){
-        if(isset($object->id)){
-            return $this->update($object);
+    public function save(){
+        if(isset($this->id)){
+            return $this->update($this);
         }
         else{
-            return $this->create($object);
+            return $this->create($this);
         }
     }
 
@@ -93,14 +91,13 @@ class User{
      * Handles the data creation
      * @return boolean
      */
-    public function create($object){
+    public function create(){
         $db = new Database(self::table);
         $data = [
-            'name'=>$object->name,
-            'sku'=>$object->sku,
-            'price'=>$object->price,
-            'description'=>$object->description,
-            'quantity'=>$object->quantity
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
+            'is_active' => $this->is_active
         ];
         if ($db->insert($data)){
             return true;
@@ -112,17 +109,16 @@ class User{
      * Handles the data updating process
      * @return boolean
      */
-    public function update($object){
+    public function update(){
         $db = new Database(self::table);
         $data = [
-            'id'=>$object->id,
-            'name'=>$object->name,
-            'sku'=>$object->sku,
-            'price'=>$object->price,
-            'description'=>$object->description,
-            'quantity'=>$object->quantity
+            'id'=>$this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
+            'is_active' => $this->is_active
         ];
-        if ($db->update("id={$object->id}",$data)){
+        if ($db->update("id={$this->id}",$data)){
             return true;
         }
         return false;
