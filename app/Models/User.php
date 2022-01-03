@@ -110,7 +110,6 @@ class User{
      * @return boolean
      */
     public function update(){
-        $db = new Database(self::table);
         $data = [
             'id'=>$this->id,
             'name' => $this->name,
@@ -118,7 +117,7 @@ class User{
             'password' => $this->password,
             'is_active' => $this->is_active
         ];
-        if ($db->update("id={$this->id}",$data)){
+        if ((new Database(self::table))->update("id={$this->id}",$data)){
             return true;
         }
         return false;
