@@ -70,6 +70,12 @@ Access the root of your web server pointing to the cloned folder, or, use the in
 $php -S localhost::80
 ```
 
+The default login credentials are;
+```bash
+Email: admin@mydomain.com.br
+Password: admin
+```
+
 
 ## :envelope:Contact and Acknowledgments 
 
