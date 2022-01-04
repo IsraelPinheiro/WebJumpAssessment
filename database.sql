@@ -8,21 +8,21 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema WebjumpFinal
+-- Schema Webjump
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema WebjumpFinal
+-- Schema Webjump
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `WebjumpFinal` DEFAULT CHARACTER SET utf8 ;
-USE `WebjumpFinal` ;
+CREATE SCHEMA IF NOT EXISTS `Webjump` DEFAULT CHARACTER SET utf8 ;
+USE `Webjump` ;
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`users`
+-- Table `Webjump`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`users` ;
+DROP TABLE IF EXISTS `Webjump`.`users` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`users` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(254) NOT NULL,
   `email` VARCHAR(254) NOT NULL,
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`users` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`products`
+-- Table `Webjump`.`products`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`products` ;
+DROP TABLE IF EXISTS `Webjump`.`products` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`products` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`products` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(254) NOT NULL,
   `sku` VARCHAR(45) NULL DEFAULT NULL,
@@ -51,11 +51,11 @@ CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`products` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`access_logs`
+-- Table `Webjump`.`access_logs`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`access_logs` ;
+DROP TABLE IF EXISTS `Webjump`.`access_logs` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`access_logs` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`access_logs` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` INT UNSIGNED NOT NULL,
   `accessed_from` VARCHAR(45) NOT NULL,
@@ -65,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`access_logs` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`change_logs`
+-- Table `Webjump`.`change_logs`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`change_logs` ;
+DROP TABLE IF EXISTS `Webjump`.`change_logs` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`change_logs` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`change_logs` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` INT UNSIGNED NOT NULL,
   `target_id` INT UNSIGNED NOT NULL,
@@ -80,18 +80,18 @@ CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`change_logs` (
   INDEX `fk_change_logs_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_change_logs_users`
     FOREIGN KEY (`user_id`)
-    REFERENCES `WebjumpFinal`.`users` (`id`)
+    REFERENCES `Webjump`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`categories`
+-- Table `Webjump`.`categories`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`categories` ;
+DROP TABLE IF EXISTS `Webjump`.`categories` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`categories` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`categories` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(254) NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
@@ -101,11 +101,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `WebjumpFinal`.`categories_products`
+-- Table `Webjump`.`categories_products`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `WebjumpFinal`.`categories_products` ;
+DROP TABLE IF EXISTS `Webjump`.`categories_products` ;
 
-CREATE TABLE IF NOT EXISTS `WebjumpFinal`.`categories_products` (
+CREATE TABLE IF NOT EXISTS `Webjump`.`categories_products` (
   `category_id` INT UNSIGNED NOT NULL,
   `product_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`category_id`, `product_id`))
@@ -115,53 +115,70 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `WebjumpFinal`.`users`
+-- Data for table `Webjump`.`users`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `WebjumpFinal`;
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Administrator', 'admin@mydomain.com.br', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Helen Woods', 'helen.woods@mydomain.com.br', '9f8a05e27b28b7870b50cbca9df2f7976d2e2577', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Justin Conrad', 'justin.conrad@mydomain.com.br', '60cfe58440da0637ea10caf9c387a02311bef51a', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Celeste Brett', 'celeste.brett@mydomain.com.br', '39becd2b9aecbbaca5ee10d20813e8f566151557', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Reilly Gilmore', 'reilly.gilmore@mydomain.com.br', 'be40a4ed57d3655515ffcb16e84b925316521789', 0);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Shahid Singleton', 'shahid.singleton@mydomain.com.br', '120fe9bf1898c004de1bc418c560b5742cbc37ce', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Payton Kline', 'payton.kline@mydomain.com.br', 'dfbef10d9252a3e007f7209e05326dbddd73bec0', 0);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Lacie Shannon', 'lacie.shannon@mydomain.com.br', '5d70904027fd6c8be0a71d54961d4df20145a0fb', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Alfred Hastings', 'alfred.hastings@mydomain.com.br', '72143b5b2d034484188206648deacaed340fb615', 1);
-INSERT INTO `WebjumpFinal`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Dianne Fitzpatrick', 'dianne.fitzpatrick@mydomain.com.br', '09b6b247d551c61c94a8729b94b3d7ef1844c2a0', 0);
+USE `Webjump`;
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Administrator', 'admin@mydomain.com.br', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Helen Woods', 'helen.woods@mydomain.com.br', '9f8a05e27b28b7870b50cbca9df2f7976d2e2577', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Justin Conrad', 'justin.conrad@mydomain.com.br', '60cfe58440da0637ea10caf9c387a02311bef51a', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Celeste Brett', 'celeste.brett@mydomain.com.br', '39becd2b9aecbbaca5ee10d20813e8f566151557', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Reilly Gilmore', 'reilly.gilmore@mydomain.com.br', 'be40a4ed57d3655515ffcb16e84b925316521789', 0);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Shahid Singleton', 'shahid.singleton@mydomain.com.br', '120fe9bf1898c004de1bc418c560b5742cbc37ce', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Payton Kline', 'payton.kline@mydomain.com.br', 'dfbef10d9252a3e007f7209e05326dbddd73bec0', 0);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Lacie Shannon', 'lacie.shannon@mydomain.com.br', '5d70904027fd6c8be0a71d54961d4df20145a0fb', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Alfred Hastings', 'alfred.hastings@mydomain.com.br', '72143b5b2d034484188206648deacaed340fb615', 1);
+INSERT INTO `Webjump`.`users` (`id`, `name`, `email`, `password`, `is_active`) VALUES (DEFAULT, 'Dianne Fitzpatrick', 'dianne.fitzpatrick@mydomain.com.br', '09b6b247d551c61c94a8729b94b3d7ef1844c2a0', 0);
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `WebjumpFinal`.`products`
+-- Data for table `Webjump`.`products`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `WebjumpFinal`;
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shorts', '7ac39575b7', 49.99, 7, NULL);
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Dress', '41e8233cbb', 69.99, 14, 'Beautiful Dress');
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Skirt', 'b3cdaa92c0', 59.99, 23, NULL);
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shirt', 'd0c9264a1c', 55.99, 7, NULL);
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'T-Shirt', '5d1dcad769', 37.99, 5, 'Cool T-Shirt');
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Leather Jacket', '91b167d9cc', 120.99, 4, 'Badass jacket');
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shoe', '4bc357e194', 85.99, 7, NULL);
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Boot', '0d0211c997', 99.99, 0, NULL);
-INSERT INTO `WebjumpFinal`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'High heel', '11c997b44b', 129.99, 4, NULL);
+USE `Webjump`;
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shorts', '7ac39575b7', 49.99, 7, NULL);
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Dress', '41e8233cbb', 69.99, 14, 'Beautiful Dress');
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Skirt', 'b3cdaa92c0', 59.99, 23, NULL);
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shirt', 'd0c9264a1c', 55.99, 7, NULL);
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'T-Shirt', '5d1dcad769', 37.99, 5, 'Cool T-Shirt');
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Leather Jacket', '91b167d9cc', 120.99, 4, 'Badass jacket');
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Shoe', '4bc357e194', 85.99, 7, NULL);
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'Boot', '0d0211c997', 99.99, 0, NULL);
+INSERT INTO `Webjump`.`products` (`id`, `name`, `sku`, `price`, `quantity`, `description`) VALUES (DEFAULT, 'High heel', '11c997b44b', 129.99, 4, NULL);
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `WebjumpFinal`.`categories`
+-- Data for table `Webjump`.`categories`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `WebjumpFinal`;
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Black', 'Color Black');
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'White', 'Color White');
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Red', 'Color Red');
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Green', 'Color Green');
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Blue', 'Color Blue');
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Very Small', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Small', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Medium', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Large', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Extra Large', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Long', NULL);
-INSERT INTO `WebjumpFinal`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Short', NULL);
+USE `Webjump`;
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Black', 'Color Black');
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'White', 'Color White');
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Red', 'Color Red');
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Green', 'Color Green');
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Blue', 'Color Blue');
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Very Small', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Small', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Medium', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Large', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Extra Large', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Long', NULL);
+INSERT INTO `Webjump`.`categories` (`id`, `name`, `description`) VALUES (DEFAULT, 'Short', NULL);
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `Webjump`.`categories_products`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `Webjump`;
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(6,1);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(6,9);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(2,2);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(2,7);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(8,1);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(8,9);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(8,11);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(5,2);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(3,2);
+INSERT INTO `Webjump`.`categories_products` (`product_id`,`category_id`) VALUES(3,7);
 COMMIT;
